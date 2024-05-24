@@ -91,14 +91,7 @@ input {
     font-size: 15px;
     padding-left: 10px;
 }
-Textarea {
-    background: #F5F6F7;  
-    border-radius: 8px;
-    border: 1px #0000004D solid;
-    padding-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+
 .hidden {
     max-height: 0;
     overflow: hidden;
@@ -131,13 +124,13 @@ Textarea {
 }
 
 .header {
-    display: flex; 
-    justify-content: space-between; 
-    align-content: center; 
-    color: white; 
-    height: 70px; 
-    width: 100%; 
-    background: #111F26; 
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: white;
+    height: 4.313rem;
+    width: 100%;
+    background: #111F26;
 }
 
 .qwerty {
@@ -187,9 +180,7 @@ Textarea {
 }
 
 .main {
-    margin: 1.25rem 0 0 7rem; 
-    height: calc(100vh - 260px); 
-    overflow: auto; 
+    margin: 1.25rem 0 0 7rem;
 }
 
 .fix-bottom {
@@ -542,7 +533,6 @@ Textarea {
     margin-bottom: 10px;
     
 }
-
 .image-upload {
     display: none;
 }

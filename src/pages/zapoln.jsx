@@ -8,7 +8,6 @@ import FormInput from "../components/form/FormInput";
 import Dropdown from "../components/Dropdown";
 import {handlePostApplication} from "../api/APIServices";
 import {useNavigate} from "react-router-dom";
-import FormTextarea from "../components/form/FormTextarea";
 
 function Zapoln() {
 
@@ -67,9 +66,9 @@ function Zapoln() {
                                        description={"Выберите категорию, которая лучше всего подходит под вашу проблему."}
                                        children={<Dropdown handleChange={handleChange} fieldName={'category'}
                                                            options={options}/>}/>
-                            <FormTextarea title={"3. Описание"}
+                            <FormInput title={"3. Описание"}
                                        description={"Расскажите подробнее о причине вашего обращения."}
-                                       textareaName={"description"}
+                                       inputName={"description"}
                                        handleChange={handleChange}/>
                             <FormInput title={"4. Дополнительные материалы"}
                                        description={"Загрузите дополнительные файлы, которые помогут нам лучше разобраться в ситуации."}
