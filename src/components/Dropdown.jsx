@@ -1,31 +1,41 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-const Dropdown = ({handleChange}) => {
+const Dropdown = ({ handleChange, fieldName, options, defaultId, disabled }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-
-    const options = [
-        {id: 1, value: 'Бухгалтерия', icon: <CheckboxIcon/>},
-        {id: 2, value: 'Отдел кадров', icon: <CheckboxIcon/>},
-        {id: 3, value: 'Отдел инклюзивности', icon: <CheckboxIcon/>},
-    ];
+    const [customSet, setCustomSet] = useState(false);
 
     const handleToggleDropdown = () => {
-        setIsOpen(!isOpen);
+        if (!disabled) {
+            setIsOpen(!isOpen);
+        }
     };
 
     const handleSelectOption = (option) => {
-        setSelectedOption(option);
-        setIsOpen(false);
-        handleChange({ target: { name: 'category', value: option.value } });
+        if (!disabled) {
+            setCustomSet(true)
+            setSelectedOption(option);
+            setIsOpen(false);
+            if (handleChange) {
+                handleChange({ target: { name: fieldName, value: option.value } });
+            }
+        }
     };
+
+    useEffect(() => {
+        console.log(`def ${defaultId}`)
+        if (defaultId !== undefined && !customSet) {
+            console.log('sset')
+            setSelectedOption(options[defaultId]);
+        }
+    }, [options, defaultId, customSet]);
 
     return (
         <div className="dropdown">
-            <button onClick={handleToggleDropdown} className="dropdown-toggle">
-                {selectedOption ? selectedOption.value : 'Введите ответ'}
+            <button onClick={handleToggleDropdown} className="dropdown-toggle" disabled={disabled}>
+                {selectedOption? selectedOption.value : 'Введите ответ'}
             </button>
-            {isOpen && (
+            {!disabled && isOpen && (
                 <div className="dropdown-options">
                     {options.map((option) => (
                         <div
@@ -33,16 +43,16 @@ const Dropdown = ({handleChange}) => {
                             onClick={() => handleSelectOption(option)}
                             className="dropdown-option"
                         >
-                            {selectedOption != null && selectedOption.id === option.id ? <CheckedIcon selectedOption={selectedOption} option={option}/> : <CheckboxIcon selectedOption={selectedOption} option={option}/>}
+                            {selectedOption != null && selectedOption.id === option.id? <CheckedIcon selectedOption={selectedOption} option={option} /> : <CheckboxIcon selectedOption={selectedOption} option={option} />}
                             {option.value}
                         </div>
                     ))}
                 </div>
-
             )}
         </div>
     );
 };
+
 
 const CheckboxIcon = ({selectedOption, option}) => (
     <div className="dropdown-option-icon" style={{background: selectedOption != null && selectedOption.id === option.id ? "" : "none"}}>

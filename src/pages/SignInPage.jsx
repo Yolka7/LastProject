@@ -34,10 +34,10 @@ function Authpage() {
     }, [isLoggedIn]);
 
     return (
-        <>
+        <div className="flex flex-col justify-between h-full">
             <Header/>
 
-            <div className="auth">
+            <div className="auth flex justify-center items-center">
                 <div className="login_form">
                     <div className="signin_title_block">
                         <p className="login_title">Авторизация</p>
@@ -47,7 +47,7 @@ function Authpage() {
                     <div className="ots">
                         <p className="ots_login_text">Логин/Почта</p>
 
-                        <div className="login_box">
+                        <div className="login_box items-center" style={{background: "#F5F6F7"}}>
                             <div className="login_icon">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +66,7 @@ function Authpage() {
                             данные </p>
 
                         <p className="ots_parol">Пароль</p>
-                        <div className="login_box">
+                        <div className="login_box items-center" style={{background: "#F5F6F7"}}>
                             <div className="login_icon">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -90,14 +90,10 @@ function Authpage() {
                             <Link className="reg-a" to="/signup">Регистрация</Link>
                         </div>
                     </div>
-                    {/*<div>*/}
-                    {/*    <p>Submitted Email: {submittedValues.email}</p>*/}
-                    {/*    <p>Submitted Password: {submittedValues.password}</p>*/}
-                    {/*</div>*/}
                 </div>
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 

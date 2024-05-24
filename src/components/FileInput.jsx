@@ -10,6 +10,7 @@ const FileInput = ({handleFileChange}) => {
 
     return (
         <label>
+            <div className="image-frame">
             <input className="image-upload" type="file" onChange={handleChange} />
             <div className="file-input-wrapper">
                 <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +19,7 @@ const FileInput = ({handleFileChange}) => {
                         fill="black" fillOpacity="0.7"/>
                 </svg>
                 <span>{file ? file.name : 'Выбрать файл'}</span>
+            </div>
             </div>
         </label>
     );

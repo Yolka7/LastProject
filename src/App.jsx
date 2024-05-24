@@ -13,6 +13,7 @@ import {Suspense} from "react";
 import ErrorPage from "./pages/ErrorPage";
 import Zaiv from "./pages/zaiv";
 import Zapoln from "./pages/zapoln";
+import TicketPage from "./pages/TicketPage";
 
 RouterProvider.propTypes = {router: PropTypes.any};
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
     {
         path: "/new_ticket",
         element: <Zapoln/>,
+    },
+    {
+        path: "/ticket/:id",
+        element: <TicketPage/>,
     },
     {
         path: "/kod",

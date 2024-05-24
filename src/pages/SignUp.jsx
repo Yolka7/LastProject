@@ -39,18 +39,18 @@ function SignUp() {
     }, [isLoggedUn]);
 
     return (
-        <>
+        <div className="flex flex-col justify-between h-full">
             <Header/>
-            <AuthComponentTest/>
-            <div class="auth">
-                <div class="register login_form">
+
+            <div class="auth m-auto">
+                <div class="login_form">
                     <div className="signin_title_block">
                         <p className="login_title">Регистрация</p>
                         <p className="podheader">Пожалуйста, введите данные вашего будущего профиля в полях</p>
                     </div>
-                    <div class="ots">
+                    <div class="ots pb-1">
                         <p class="m-login pocht">Почта</p>
-                        <div className="login_box">
+                        <div className="login_box items-center">
                             <div className="login_icon">
                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ function SignUp() {
                         <div className="dir">
                             <div className="Name">
                                 <p className="m-login name">Имя</p>
-                                <div className="login_box">
+                                <div className="login_box items-center">
                                     <div className="login_icon">
                                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ function SignUp() {
                             </div>
                             <div className="fam">
                                 <p className="m-login firstn">Фамилия</p>
-                                <div className="login_box">
+                                <div className="login_box items-center">
                                     <div className="login_icon">
                                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,7 @@ function SignUp() {
                 </div>
             </div>
             <Footer/>
-        </>
+        </div>
     );
 }
 
